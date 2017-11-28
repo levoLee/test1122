@@ -1,0 +1,58 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/comment/comment",     
+    "pages/detail/detail",          
+    "pages/zixuan/my",   
+    "pages/zixuan/zixuan",                 
+    "pages/hangqing/hangqing",   
+    "pages/dongtai/dongtai",
+    "pages/option/option",
+    "pages/search/searchAll/index",
+    "pages/search/searchTea/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#cb3d31",
+    "navigationBarTitleText": "链茶",
+    "navigationBarTextStyle": "#fff",
+    "enablePullDownRefresh": false
+  },
+   "networkTimeout": {
+    "request": 15000
+  },
+  "tabBar": {
+    "backgroundColor": "#eeeeee",
+    "borderStyle": "white",
+    "color": "#a2a2a2",
+    "selectedColor": "#cb3d31",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "img/home_gray.png",
+      "selectedIconPath": "img/home_red.png",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/zixuan/my",
+      "iconPath": "img/zixuan_gray.png",
+      "selectedIconPath": "img/zixuan_red.png",
+      "text": "自选"
+    }, {
+      "pagePath": "pages/dongtai/dongtai",
+      "iconPath": "img/dongtai_gray.png",
+      "selectedIconPath": "img/dongtai_red.png",
+      "text": "动态"
+    }, {
+      "pagePath": "pages/hangqing/hangqing",
+      "iconPath": "img/hangqing_gray.png",
+      "selectedIconPath": "img/hangqing_red.png",
+      "text": "行情"
+    },
+    {
+      "pagePath": "pages/hangqing/hangqing",
+      "iconPath": "img/tool/my.png",
+      "selectedIconPath": "img/tool/my_selected.png",
+      "text": "我的"
+    }]
+  },
+  "debug": false
+}

@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<import src="../../../template/loading.wxml" />
+<view>
+
+  <view class="search__top">
+    <form class="search__form" bindsubmit="searchSubmit">
+      <input placeholder="搜索茶叶/行情/讨论/交易" class="search__input" auto-focus="true" bindfocus="focusSearch" bindinput="bindKeyInput" value="{{search.searchValue}}" />
+      <view class="search__icon search__active" style="width:40rpx;">
+        <icon type="search" class="search-icon" size="13" color="#888"></icon>
+      </view>
+      <button wx:if="{{search.showClearBtn}}" catchtap="searchActiveChangeclear" form-type="reset" style="background:none;position:absolute;border:none;right:0;top:0;bottom:0;width:100rpx;">
+        <icon type="clear" size="19" color="#aaa" class="search-clear-icon"></icon>
+      </button>
+    </form>
+  </view>
+  <view class="before_search" wx:if="{{!search.showClearBtn}}">
+    <view class="title">大家都在搜</view>
+  </view>
+
+  <!-- 搜索无结果 -->
+  <view class="nodata" hidden="{{noData}}">
+    <view>
+      <image src="../../../img/nodata.png"></image>
+    </view>
+    <view>抱歉，没有相关数据</view>
+  </view>
+
+  <!-- 搜索行情、讨论、交易结果 -->
+  <scroll-view scroll-y="{{true}}" bindscroll="scroll" bindscrolltolower="lower" class="scroll" wx:if="{{search.showClearBtn}}">
+      <view wx:if="{{isFold}}">
+        <view class="history" wx:for="{{datas}}" wx:key="item" wx:for-index="idx">
+          <view class="item" bindtap="choose" data-item="{{item}}">
+            <view class="left">{{item.name}}</view>
+            <view class="right" bindtap="focus" data-teaid="{{item.id}}">+</view>
+          </view>
+        </view>
+         <!-- <view class="toggle_part" bindtap="flodFn"></view> -->
+      </view>
+      <view wx:else>
+        <view class="history" wx:for="{{datas}}" wx:key="item" wx:for-index="idx">
+          <view class="item" bindtap="choose" data-item="{{item}}">
+            <view class="left">{{item.name}}</view>
+            <view class="right" bindtap="focus" data-teaid="{{item.id}}">+</view>
+          </view>
+        </view>
+     
+      </view>
+    <view wx:if="{{!end && loading && noData}}">
+      <template is="loading" />
+    </view>
+    <view class="myloading" wx:if="{{end}}">没有数据了~</view>
+  </scroll-view>
+</view>

@@ -1,0 +1,32 @@
+<view class="comment">
+  <view class="title" wx:if="{{type==0}}">
+    <view style="font-size:30rpx;">标题</view>
+    <view class="titleInput"><input bindinput="bindTitleInput" value="{{title}}" placeholder="茶香四溢，香飘五湖四海" placeholder-style="font-size:30rpx;" /></view>  
+  </view>
+  <view class="title" wx:if="{{type==1}}">
+    <view style="font-size:30rpx;">店铺名称</view>
+    <view class="titleInput"><input bindinput="bindTitleInput" value="{{title}}" placeholder="城市-地址-店铺名称" placeholder-style="font-size:30rpx;" /></view>  
+  </view>
+  <view class="section" wx:if="{{type==0}}">
+    <textarea bindinput="bindKeyInput" value="{{content}}" placeholder="分享你的观点..." />
+  </view>
+  <view class="section" wx:if="{{type==1}}">
+    <textarea bindinput="bindKeyInput" value="{{content}}" placeholder="正文内容至少包含产品名称..." />
+  </view>
+  <view class="upload" wx:if="{{type==2}}">
+    <image src="{{src}}" bindtap="chooseImg"></image>
+  </view>
+  <view class="fabu">
+    <view class="left" >
+      <view wx:if="{{from==='index'?true:false}}">
+        <view wx:if="{{teaName}}" bindtap="goDetail">
+          <text>$  {{teaName}}</text>
+        </view>
+        <view wx:else>输入<text>$</text>发布的信息会在产品页显示</view>       
+      </view>
+    </view>
+    <view class="penBtn" bindtap="addOption">
+      <image src="../../img/pen.png"></image>
+    </view>
+  </view>
+</view>

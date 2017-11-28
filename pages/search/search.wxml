@@ -1,0 +1,19 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  	<view class="search">
+  		<view class="search_form">
+  			 <input placeholder="8653 8853，南诏圆茶 礼品沱，绿大树" placeholder-class="search_input" />
+  		</view>
+  	</view>
+  	<view class="log">
+  		<view class="title">热门搜索</view>	
+  		<view class="log_info">
+  			<view class="label">8653</view>
+  			<view class="label">8853</view>
+  			<view class="label">沱茶</view>
+  			<view class="label">砖茶</view>
+  			<view class="label">饼茶</view>
+  			<view class="label">南召圆茶</view>
+  		</view>	
+  	</view>
+</view>

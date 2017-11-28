@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<import src="../../template/loading.wxml" />
+<view>
+  	<view class="search_group">     
+  		<view class="search_input">
+       <view class="search__top">
+    <form class="search__form" bindsubmit="searchSubmit">
+    	 <input placeholder="8653 8853，南诏圆茶 礼品沱，绿大树" placeholder-class="search_input" auto-focus  bindinput="bindKeyInput" />
+      <view class="search__icon search__active" style="width:40rpx;">
+        <icon type="search" class="search-icon" size="13" color="#888"></icon>
+      </view>
+      <button wx:if="{{search.showClearBtn}}" catchtap="searchActiveChangeclear" form-type="reset" style="background:none;position:absolute;border:none;right:0;top:0;bottom:0;width:80rpx;">
+        <icon type="clear" size="19" color="#aaa" class="search-clear-icon"></icon>
+      </button>
+    </form>
+  </view>
+  		
+  		</view>   
+      <!-- <view class="search_btn" bindtap="search">
+        <image src="../../img/search.png"></image>
+      </view>   -->
+  	</view>
+    <view class="title">大家都在搜</view>
+    <view class="nodata" hidden="{{noData}}">
+      <view><image src="../../img/nodata.png"></image></view>
+      <view>抱歉，没有相关数据</view>
+    </view>
+    <scroll-view scroll-y="{{true}}" bindscroll="scroll" bindscrolltolower="lower" class="scroll">
+        <view class="history" wx:for="{{datas}}" wx:key="item" wx:for-index="idx">
+        <view class="item" bindtap="choose" data-item="{{item}}">
+          <view class="left">{{item.name}}</view>
+          <view class="right" bindtap="focus" data-teaid="{{item.id}}">+</view>
+        </view>       
+      </view>
+      <view wx:if="{{!end && loading && noData}}">
+          <template is="loading" /> 
+        </view>
+        <view class="myloading" wx:if="{{end}}">没有数据了~</view>
+    </scroll-view>
+</view>

@@ -1,0 +1,294 @@
+/**app.wxss**/
+page {
+	font-family: '微软雅黑';
+  font-size:11pt;
+}
+.scroll {
+	position:absolute;
+	width: 100%;
+	height: 100%;
+}
+.search {
+	width: 100%;
+	background: #cb3d31;
+	height: 90rpx;
+	color: #cb3d31;
+	text-align: center;
+	font-family: 'Microsoft YaHei';
+	padding-top: 20rpx;
+}
+.search_form {	
+	text-align: center;
+	width: 90%;
+	margin: auto;
+	display: flex;
+}
+.search_form view {
+	background: #fff;
+}
+.search_form .search_btn {
+	width: 10%;
+	-moz-border-radius: 8rpx 0 0 8rpx;
+    -webkit-border-radius: 8rpx 0 0 8rpx;
+  	border-radius: 8rpx 0 0 8rpx;
+  	height: 70rpx;
+	line-height: 80rpx;	
+}
+.search_form .search_btn image {
+	width: 30rpx;
+	height: 30rpx;
+}
+.search_form .search_input {
+	width: 90%;
+	-moz-border-radius: 0 8rpx 8rpx 0;
+    -webkit-border-radius: 0 8rpx 8rpx 0;
+  	border-radius: 0 8rpx 8rpx 0;
+  	text-align: left;
+} 
+.search_form input {
+	background: #fff;
+	height: 70rpx;
+	line-height: 98rpx;	
+	font-size: 28rpx;
+	-moz-border-radius: 0 8rpx 8rpx 0;
+    -webkit-border-radius: 0 8rpx 8rpx 0;
+  	border-radius: 0 8rpx 8rpx 0;
+  	text-algin: left;
+  	color: #aaaaaa;
+}
+.search_hold {
+	text-align: left;
+}
+.banner {
+	position: relative;
+	width: 100%;
+	margin: 16rpx 0 10rpx;
+	z-index: 99;
+}
+.banner image {
+	width: 100%;
+	height: 200rpx;
+}
+.banner image.banner_btn {
+	position: absolute;
+	left: 20%;
+	bottom: 20%;
+	width: 200rpx;
+	height: 46rpx;
+}
+.list {
+	display: flex;
+	background: #fff;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	padding: 30rpx 4%;
+	border-bottom: 2rpx solid #c7c7c7;
+}
+.list_left, .list_all {
+	width: 70%;
+	color: #000;
+	font-size: 32rpx;
+	font-weight: bold;
+}
+.list_all {
+	width: 100%;
+}
+.list_left .list_desc, .desc {
+	color: #999;
+	margin: 15rpx 0;
+	font-size: 30rpx;
+}
+.desc .deal {
+	color: #000;
+}
+.list_left .list_info, .info {
+	margin: 15rpx 0;
+	font-size: 24rpx;
+	color: #bbbbbb;
+}
+.list_left .list_info .nickname, .info .nickname {
+	margin: 0 10rpx;
+}
+/* .list_left .list_info .comment, .info .comment {
+	color: #2990cc;
+} */
+.list_right image {
+	width: 200rpx;
+	height: 200rpx;
+}
+
+.left {
+	float: left;
+	width: 20%;
+}
+.history .history_title, .history .history_item {
+	border-bottom: 2rpx solid #c7c7c7;
+	background: #fff;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	font-size: 30rpx;
+	clear: both;
+}
+.history .history_item {
+	color: #333;
+	font-size: 24rpx;
+}
+.history .history_title .left {	
+	color: #999;		
+}
+.history .history_title view:first-child, .history .history_item view:first-child {
+	width: 40%;
+}
+.history .history_item .up, .history .history_item .down {
+	background: #cb3d31;
+	width: 130rpx;
+	margin:auto;
+	height: 60rpx;
+	line-height: 60rpx;
+	margin-top: 10rpx;
+	color: #fff;
+}
+.history .history_item .down {
+	background: #31cb4a;
+}
+/*行情*/
+.history .history_title, .history .history_item {
+	border-bottom: 2rpx solid #c7c7c7;
+	background: #fff;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	font-size: 30rpx;
+}
+.history .history_item {
+	color: #333;
+}
+.history .history_title .left {	
+	color: #999;		
+}
+.history .history_title view:first-child, .history .history_item view:first-child {
+	width: 40%;
+}
+.history .history_item .up, .history .history_item .down {
+	background: #cb3d31;
+	width: 130rpx;
+	margin:auto;
+	height: 60rpx;
+	line-height: 60rpx;
+	margin-top: 10rpx;
+	color: #fff;
+}
+.history .history_item .down {
+	background: #31cb4a;
+}
+.myloading {
+  padding: 20rpx 0;
+  text-align: center;
+  font-size: 14px;
+}
+.nodata {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0; 
+	margin: auto;
+	text-align: center;
+	height: 50rpx;
+	line-height: 50rpx;
+	font-size: 30rpx;
+}
+.nodata image {
+	width: 200rpx;
+	height: 200rpx;
+}
+.addComment {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.addComment .modal{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+	background: rgba(0,0,0,.6);
+}
+.addComment .detail {
+	position: absolute;
+	z-index: 100;
+	height: 400rpx;
+	background: #fff;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+.addComment .detail .top {
+	display: flex;
+	padding-top: 20rpx;
+}
+.addComment .detail .top view {
+	width: 50%;
+	text-align: left;
+	margin-left: 20rpx;
+	font-size: 28rpx;
+}
+.addComment .detail .top view:last-child {
+	text-align: right;
+	margin-right: 20rpx;
+}
+.addComment .detail .content {
+	padding: 0 20rpx;
+	margin-top: 20rpx;
+}
+.addComment .detail .content textarea {
+	background: #eee;
+	font-size: 28rpx;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.popUp {
+	background: rgba(255,255,255,.9);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+.popUp .close {
+	position: absolute;
+	top: 30rpx;
+	right: 30rpx;
+	width: 50rpx;
+	height: 50rpx;
+}
+.popUp .popUpbtns {
+	display: flex;
+}
+.popUp .popUpbtns {
+	width: 360rpx;
+	margin: auto;
+	padding-top: 45%;
+}
+.popUp .popUpbtns .listImg {
+	text-align: center;
+	width: 120rpx;
+	margin: 0 20rpx;
+}
+.popUp .popUpbtns .listImg view {
+	text-align: center;
+	width: 100%;
+}
+.popUp .popUpbtns image {
+	width: 120rpx;
+	height: 120rpx;	
+}
+
+

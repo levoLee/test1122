@@ -1,0 +1,181 @@
+
+/**index.wxss**/
+@import '../../lib/style/icon.wxss';
+page {
+	background: #eaeaea;
+	color: #333;
+}
+.zone {
+	width: 100%;
+	display: flex;
+	background: #fff;
+	margin-top: 20rpx;
+	padding: 40rpx 0;
+}
+.zone view {
+	width: 33.33%;
+	border-right: 1px solid #ddd;
+	box-sizing: border-box;
+	text-align: center;
+}
+.zone view:last-child {
+	border: none;
+}
+.zone view image {
+	width: 108rpx;
+	height: 66rpx;
+}
+.info,
+.list_info {
+ 	display: flex;
+}
+.info .info_text,
+.list_info .info_text {
+	margin-top: 10rpx;
+}
+.info .info_text text,
+.list_info .info_text text {
+	margin: 0 6rpx;
+}
+.info .portait,
+.list_info .portait {
+	width: 50rpx;
+	height: 50rpx;
+	border-radius: 50rpx;
+}
+.header {
+	display: flex;
+	text-align: center;
+	background: #fff;
+	border-bottom: 1rpx solid #c7c7c7;
+	padding: 30rpx 0;
+  margin-top:30rpx;
+}
+.header .item:first-child {
+	width: 40%;
+}
+.header .item:first-child image {
+	width: 230rpx;
+	height: 90rpx;
+}
+.header .item:last-child {
+	width: 60%;
+	display: flex;
+}
+.header .item .taolun {
+	display: flex;
+	width: 50%;
+	color: #aaaaaa;
+	margin: auto;
+}
+.header .item .taolun:first-child image {
+	width: 56rpx;
+	height: 40rpx;
+}
+.header .item .taolun:last-child image {
+	width: 50rpx;
+	height: 50rpx;
+}
+.header .item .taolun view:first-child {
+	margin-left: 20%;
+}
+.header .item .taolun view:last-child {
+	margin-left: 10rpx;
+}
+.active {
+	color: #000;
+}
+/* 搜索样式 */
+.search-top{
+  background: #cb3d31;
+  padding:30rpx;
+  box-shadow:0 5rpx 15rpx #cb3d31;
+}
+.search-input{
+  padding:15rpx 30rpx 15rpx 90rpx;
+  background: #fff;
+  border-radius:50rpx;
+}
+.search-icon{
+position:relative;
+top:-50rpx;
+left:30rpx;
+float:left;
+margin-right:20rpx;
+}
+.search-clear-icon{
+position:absolute;
+right:30rpx;
+top:50rpx;
+z-index:3;
+}
+.index-edit{
+  position: relative;
+  top:15rpx;
+  background: #fff;
+  padding:10pt 0 15pt;
+  display: flex;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.edit-part{
+  border-radius:30px;
+  width:50%;
+  display: flex;
+  box-sizing:border-box;
+ justify-content: center;
+}
+.index-edit .iconfont{
+ padding:15pt;
+ border-radius:20pt;
+}
+.index-edit .iconfont:before{
+  font-size:20pt;
+  color:#fff;
+}
+.index-edit .part1{
+ background: #e46c61;
+}
+.index-edit .part2{
+ background: #54befa;
+}
+.edit-text{
+  display: flex;
+  width:50%;
+   justify-content: center;
+   color:#666;
+}
+.no-top{
+  padding-top:0;
+  border-bottom:1rpx solid #c7c7c7;
+}
+.no-bottom{
+  padding-bottom:5pt;
+}
+/* 分类展示标题 */
+.index-show-title{
+  padding:50rpx 0 40rpx;
+  display: flex;
+  justify-content: center;
+  border-bottom:1rpx solid #c7c7c7;
+}
+.show-part{
+  width:33.33%;
+  display: flex;
+   justify-content: center;
+   border-right:1rpx solid #c7c7c7;
+}
+.show-part:last-child{
+  border-right:none;
+}
+.show-part .iconfont:before{
+  padding-right:15rpx;
+  vertical-align: middle;
+}
+.selected .iconfont:before{
+  color:#cb3d31;
+}
+.selected{
+  color:#cb3d31;
+}

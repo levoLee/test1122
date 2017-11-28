@@ -1,0 +1,31 @@
+<import src="../../template/loading.wxml" />
+<view>
+  	<view class="search" bindtap="search">
+      <view class="search_form">
+        <view class="search_btn"><image src="../../img/search_gray.png"></image></view>
+        <view class="search_input"><input placeholder="8653 8853，南诏圆茶 礼品沱，绿大树" disabled/></view>
+      </view>
+    </view>
+  	<view class="history">
+      <view class="history_title">
+        <view class="left">品名</view>
+        <view class="left">参考价</view>
+        <view class="left">涨跌额</view>
+        <view class="left">涨跌幅</view>
+      </view>
+      <scroll-view scroll-y="{{true}}" bindscroll="scroll" bindscrolltolower="lower" class="scroll">
+        <view wx:for="{{datas}}" wx:key="item" wx:for-index="idx">
+          <view class="history_item" bindtap="goDetail" data-teaid="{{item.id}}">
+            <view class="left">{{item.name}}</view>
+            <view class="left">{{item.price}}</view>
+            <view class="left">{{item.fluctuation}}</view>
+            <view class="{{item.class}}">{{item.pricefluctuation}}</view>
+          </view>
+        </view>
+        <view wx:if="{{!end && loading && noData}}">
+          <template is="loading" /> 
+        </view>
+        <view class="myloading" wx:if="{{end}}">没有数据了~</view>
+      </scroll-view>
+    </view>
+</view>

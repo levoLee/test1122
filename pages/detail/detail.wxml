@@ -1,0 +1,103 @@
+<import src="../../template/loading.wxml" />
+<view class="container">
+  <view class="btns">
+    <view ><image bindtap="focus" src="../../img/focus.png"></image></view>
+    <view><image bindtap="showFabu" src="../../img/fabu.png"></image></view>
+  </view>
+  <view class="history">
+      <view class="history_title">
+        <view class="left">品名</view>
+        <view class="left">参考价</view>
+        <view class="left">涨跌额</view>
+        <view class="left">涨跌幅</view>
+      </view>
+      <view class="history_item">
+        <view class="left">{{data.name}}</view>
+        <view class="left">￥{{price}}</view>
+        <view class="left">{{data.amprice}}</view>
+        <view class="left up">{{data.amper}}</view>
+      </view>
+    </view>
+  <view class="product_info">
+    <view class="product">
+      <view class="product_img" style="background:url({{data.srcimg}}) no-repeat center center / cover"></view>
+      <!--image src="{{}}"></image--> 
+      <view class="title">{{data.name}}</view>
+      <view class="product_price">{{data.price}}</view>     
+    </view>    
+  </view>  
+  <view class="tab">
+    <view class="{{classNames[0]}}" bindtap="changetab" data-type="detail" data-num="0">基本信息</view>
+    <view class="{{classNames[1]}}" bindtap="changetab" data-type="allList" data-num="1">全部</view>
+    <view class="{{classNames[2]}}" bindtap="changetab" data-type="zeroList" data-num="2">讨论</view>
+    <view class="{{classNames[3]}}" bindtap="changetab" data-type="oneList" data-num="3">交易</view>
+  </view>
+  <view wx:if="{{type!=='detail'}}">
+    <view class="noDatas" hidden="{{noData}}">
+      <view><image src="../../img/nodata.png"></image></view>
+      <view>抱歉，没有相关数据</view>
+    </view>
+  </view>  
+  <view class="tab_detail" wx:if="{{type==='detail'}}">
+    <view  class="product_detail">
+      <view class="name">【名　　称】{{data.name}}</view>
+      <view class="name">【产　　地】{{data.producer}}</view>
+      <view>【生产日期】{{data.year}}年</view>
+      <view>{{data.specifications}}</view>
+      <view>{{data.storage}}</view>
+    </view>      
+  </view> 
+  <scroll-view scroll-y="{{true}}" wx:if="{{datas}}" bindscroll="scroll" bindscrolltolower="lower" class="scroll">
+    <view class="all" wx:for="{{datas}}" wx:key="item" wx:for-index="idx">
+      <view class="list">
+        <view class="list_all" bindtap="goOptionDetail" data-trendid="{{item.id}}">
+          <view class="title" wx:if="{{item.title && item.statu==0}}">{{item.title}}>{{item.title}}</view>
+          <view class="desc"><text class="deal" wx:if="{{item.statu==1}}">【交易】</text>{{item.content}}</view>
+          <view class="info">
+            <view>
+              <image class="portait" src="{{item.activePath}}"></image>
+            </view>
+            <view class="info_text">
+              <text class="nickname">{{item.name}}</text>
+              <text class="time">{{item.createTime}}</text>           
+              <text class="comment" catchtap="comment" data-item="{{item}}" data-index="{{idx}}">评论({{item.count}})</text>
+            </view> 
+          </view>
+        </view>
+      </view>       
+    </view>
+    <view wx:if="{{!end && loading && noData}}">
+      <template is="loading" /> 
+    </view>
+    <view class="myloading" wx:if="{{end}}">没有数据了~</view>
+  </scroll-view>
+  <view class="popUp" wx:if="{{showPop}}">
+    <image class="close" src="../../img/close.png" bindtap="close"></image>
+    <view class="popUpbtns">
+      <view class="listImg" bindtap="setOption" data-type="0">
+        <image src="../../img/articleBtn.png"></image>
+        <view>长文</view>
+      </view>
+      <view class="listImg" bindtap="setOption" data-type="1">
+        <image src="../../img/dealBtn.png"></image>
+        <view>交易</view>
+      </view>
+      <!--view class="listImg" bindtap="setOption" data-type="2">
+        <image src="../../img/teaBtn.png"></image>
+        <view>产品</view>
+      </view-->
+    </view>
+  </view>
+  <view class="addComment" wx:if="{{showComment}}">
+    <view class="modal"></view>
+    <view class="detail">
+      <view class="top">
+        <view bindtap="cancel">取消</view>
+        <view bindtap="fabu">发布</view>
+      </view>
+      <view class="content">
+        <textarea bindinput="bindKeyInput" placeholder="亮出你的观点吧..." />
+      </view>
+    </view>
+  </view>
+</view>

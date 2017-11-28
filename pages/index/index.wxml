@@ -1,0 +1,110 @@
+<!--index.wxml-->
+<import src="../../template/loading.wxml" />
+<view>
+  <!-- 搜索部分 -->
+  <view class="search-top" bindtap="search">
+    <form class="search__form">
+      <input value="{{search.searchValue}}" placeholder="搜索茶叶/行情/讨论/交易" class="search-input" bindfocus="focusSearch" bindinput="searchActiveChangeinput" auto-focus="true" name="teamSearchKeyWords" />
+      <view class="search__icon search__active" style="width:40rpx;">
+        <icon type="search" class="search-icon" size="13" color="#888"></icon>
+      </view>
+      <view wx:if="{{search.showClearBtn}}" catchtap="searchActiveChangeclear" form-type="reset" style="background:none;position:absolute;border:none;right:0;top:0;bottom:0;width:80rpx;">
+        <icon type="clear" size="19" color="#aaa" class="search-clear-icon"></icon>
+      </view>
+    </form>
+  </view>
+  <!-- 图标操作 -->
+  <view class="index-edit no-bottom">
+    <view class="edit-part" bindtap="showPop">
+      <view class="iconfont icon-bofang part1"></view>
+    </view>
+    <view class="edit-part">
+      <view class="iconfont icon-kefu part2"> </view>
+    </view>
+  </view>
+  <view class="index-edit no-top">
+    <view class="edit-text">发布消息</view>
+    <view class="edit-text">自建产品</view>
+  </view>
+  <!--分类展示标题-->
+  <view class="index-show-title">
+    <view class="show-part {{type==3?'selected':''}}" bindtap="change" data-type="3">
+      <view class="iconfont icon-bofang"></view>
+      <view>头条</view>
+    </view>
+      <view class="show-part {{type==0?'selected':''}}" bindtap="change" data-type="0">
+      <view class="iconfont icon-bofang"></view>
+      <view>讨论</view>
+    </view>
+      <view class="show-part {{type==1?'selected':''}}" bindtap="change" data-type="1">
+      <view class="iconfont icon-bofang"></view>
+      <view>交易</view>
+    </view>
+  </view>
+  
+  <!--暂无数据 -->
+ 
+  <!--动态内容 -->
+  <scroll-view scroll-y="{{true}}" bindscroll="scroll" bindscrolltolower="lower" class="scroll">
+   <view class="nodata" hidden="{{noData}}">
+    <view>
+      <image src="../../img/nodata.png"></image>
+    </view>
+    <view>抱歉，没有相关数据</view>
+  </view>
+    <view wx:for="{{datas}}" wx:key="item" wx:for-index="idx">
+      <view class="list">
+        <view class="list_all" bindtap="goOptionDetail" data-trendid="{{item.id}}">
+          <view class="title" wx:if="{{item.title && item.statu==0}}">{{item.title}}</view>
+          <view class="desc">
+            <text class="deal" wx:if="{{item.statu==1}}">【交易】</text>{{item.content}}</view>
+          <view class="info">
+            <view>
+              <image class="portait" src="{{item.activePath}}"></image>
+            </view>
+            <view class="info_text">
+              <text class="time">{{item.createTime}}</text>
+              <text class="nickname">{{item.nickName}}</text>
+             <text class="comment">评论{{'(' + (item.count || 0) + ')'}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{!end && loading && noData}}">
+      <template is="loading" />
+    </view>
+    <view class="myloading" wx:if="{{end}}">没有数据了~</view>
+  </scroll-view>
+  <!--发布评论 -->
+  <!-- <view class="addComment" wx:if="{{showComment}}">
+    <view class="modal"></view>
+    <view class="detail">
+      <view class="top">
+        <view bindtap="cancel">取消</view>
+        <view bindtap="fabu">发布</view>
+      </view>
+      <view class="content">
+        <textarea bindinput="bindKeyInput" placeholder="亮出你的观点吧..." />
+      </view>
+    </view>
+  </view> -->
+  <!--发布长文，交易，产品 -->
+  <view class="popUp" wx:if="{{showPop}}">
+    <image class="close" src="../../img/close.png" bindtap="close"></image>
+    <view class="popUpbtns">
+      <view class="listImg" bindtap="setOption" data-type="0">
+        <image src="../../img/articleBtn.png"></image>
+        <view>长文</view>
+      </view>
+      <view class="listImg" bindtap="setOption" data-type="1">
+        <image src="../../img/dealBtn.png"></image>
+        <view>交易</view>
+      </view>
+      <!-- <view class="listImg" bindtap="setOption" data-type="2">
+        <image src="../../img/teaBtn.png"></image>
+        <view>产品</view>
+      </view> -->
+    </view>
+  </view>
+</view>

@@ -1,0 +1,86 @@
+<import src="../../template/loading.wxml" />
+<view class="container">
+  	<view class="person_info">
+  		<view class="portrait"><image src="{{portrait}}"></image></view>
+  		<view class="nickname">
+  			<view>{{nickname}}</view>
+  			<view>{{createTime}}</view>
+  		</view>
+  		<view class="focus_btn" bindtap="focus"><view class="focus">关注</view></view> 		
+  	</view>
+  	<view class="acticle">
+  		<view class="title">{{title}}</view>
+  		<view class="detail">{{content}}</view>	
+  	</view>
+  	<view class="comment">
+		<view class="title">
+			<view class="left">精彩评论<text class="zan">转发（{{forwordCount}}）评论（{{commentCount}}）赞（{{zancount}}）</text></view>
+			<view class="right" bindtap="handleOpen">{{text}}</view>
+		</view>
+		<view class="nodata" hidden="{{noData}}">
+		    <view><image src="../../img/nodata.png"></image></view>
+		    <view>抱歉，没有相关数据</view>
+	    </view>
+		<scroll-view scroll-y="{{true}}" bindscroll="scroll" bindscrolltolower="lower" class="scroll">
+			<view wx:for="{{datas}}" wx:key="item" wx:for-index="idx">
+				<view class="item">
+					<view class="head">
+						<view class="portrait"><image src="{{item.activePath || '../../img/portrait.png'}}"></image></view>
+						<view class="nickname">
+				  			<view>{{item.userName}}</view>
+				  			<view>{{item.createTime}}</view>
+				  		</view>
+				  		<view class="zan">
+				  			<view>{{item.count || 0}}</view>
+				  			<view bindtap="addPraise" data-id="{{item.id}}" data-index="{{idx}}"><image src="../../img/zan.png"></image></view>
+				  			<view bindtap="comment" data-item="{{item}}" data-index="{{idx}}"><image src="../../img/taolun.png"></image></view>
+				  		</view>
+					</view>	
+					<view class="detail">{{item.content}}</view>	
+		  		</view>		  		
+			</view>
+			<view wx:if="{{!end && loading && noData}}">
+		        <template is="loading" /> 
+		    </view>
+		    <view class="myloading" wx:if="{{end}}">没有数据了~</view>
+		</scroll-view>
+	</view>
+	<view class="action">
+		<view class="item">
+			<image src="../../img/zhuanfa.png"></image>
+			<view>转发</view>
+			<button open-type="share"></button>
+		</view>
+		<view class="item" bindtap="comment">
+			<image src="../../img/taolun.png"></image>
+			<view>评论</view>
+		</view>
+		<view class="item" bindtap="addPraise">
+			<image src="../../img/zan.png"></image>
+			<view>赞</view>
+		</view>
+	</view>
+	<view class="select" wx:if="{{display}}">
+		<view class="item" bindtap="reload" data-type="1">
+			<image wx-if="{{text==='正序'}}" src="../../img/check.png"></image>
+			<text>正序</text>
+		</view>
+		<view class="item" bindtap="reload" data-type="0">
+			<image wx-if="{{text==='反序'}}" src="../../img/check.png"></image>
+			<text>反序</text>
+		</view>
+		<view bindtap="handleClose">取消</view>
+	</view>
+	<view class="addComment" wx:if="{{showComment}}">
+		<view class="modal"></view>
+		<view class="detail">
+			<view class="top">
+				<view bindtap="cancel">取消</view>
+				<view bindtap="fabu">发布</view>
+			</view>
+			<view class="content">
+				<textarea bindinput="bindKeyInput" placeholder="亮出你的观点吧..." />
+			</view>
+		</view>
+	</view>
+</view>

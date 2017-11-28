@@ -1,0 +1,22 @@
+
+/**index.wxss**/
+page {
+	background: #eee;
+	color: #333;
+}
+.banner {
+	position: relative;
+}
+.banner image {
+	width: 100%;
+	height: 200rpx;
+}
+.banner image.banner_btn {
+	position: absolute;
+	left: 20%;
+	bottom: 20%;
+	width: 200rpx;
+	height: 46rpx;
+}
+
+

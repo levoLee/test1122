@@ -1,0 +1,18 @@
+
+/**index.wxss**/
+page {
+	background: #eee;
+	color: #333;
+	font-size: 28rpx;
+}
+.title {
+	margin-top: 50rpx;
+	margin-left: 5%;
+	font-weight: bold;
+	color: #333;
+}
+.left {
+	float: left;
+	width: 20%;
+}
+

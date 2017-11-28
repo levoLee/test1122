@@ -1,0 +1,80 @@
+
+/**index.wxss**/
+page {
+	background: #eee;
+	color: #333;
+	font-size: 28rpx;
+}
+.search_group {
+	width: 90%;
+	margin: 40rpx auto;
+	display: flex;
+	height: 80rpx;
+	line-height: 80rpx;
+	background: #eee;
+}
+.search_group .search_input, .search_group .search_btn {
+	width: 88%;
+	-moz-border-radius: 8rpx 0 0 8rpx;
+    -webkit-border-radius: 8rpx 0 0 8rpx;
+  	border-radius: 8rpx 0 0 8rpx;
+  	background: #fff;	
+}
+.search_group .search_input input {
+	padding-left: 10rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+}
+.search_group .search_btn {
+	width: 10%;
+	background: #cb3d31;
+	-moz-border-radius: 8rpx;
+    -webkit-border-radius: 8rpx;
+  	border-radius: 8rpx;
+  	text-align: center;
+  	line-height: 100rpx;
+}
+.search_group .search_btn image {
+	width: 40rpx;
+	height: 40rpx;
+}
+.title {
+	margin-top: 50rpx;
+	margin-left: 5%;
+	font-weight: bold;
+	color: #333;
+}
+.history {
+	margin-top: 30rpx;
+}
+.history .item {
+	border-bottom: 2rpx solid #c7c7c7;
+	background: #fff;
+	height: 80rpx;
+	line-height: 80rpx;
+}
+.history .item .left {
+	float: left;
+	margin-left: 5%;
+	color: #666;
+	font-size: 36rpx;
+	width: 70%;
+	font-size: 28rpx;
+}
+.history .item .right {
+	float: right;
+	border: 2rpx solid #d97168;
+	-moz-border-radius: 4rpx;
+    -webkit-border-radius: 4rpx;
+  	border-radius: 4rpx;
+  	width: 40rpx;
+  	height: 40rpx;
+  	line-height: 30rpx;
+  	color: #d97168;
+  	font-size: 54rpx;
+  	text-align: center;
+  	margin-right: 10%;
+  	font-weight: bold;
+  	margin-top: 20rpx;
+}
+

@@ -1,0 +1,58 @@
+<!--index.wxml-->
+<import src="../../template/loading.wxml" />
+<view>
+  	<view class="zone">
+  		<view class="block" style="color:{{type==='allList'?'#cb3d31':'#333'}}" bindtap="change" data-type="allList">
+        <image src="../../img/all.png"></image>
+        <view>全部</view>
+      </view>
+  		<view class="block" style="color:{{type==='zeroList'?'#cb3d31':'#333'}}" bindtap="change" data-type="zeroList">
+        <image src="../../img/wechat.png"></image>
+        <view>讨论</view>
+      </view>
+  		<view class="block" style="color:{{type==='oneList'?'#cb3d31':'#333'}}" bindtap="change" data-type="oneList">
+        <image src="../../img/date.png"></image>
+        <view>交易</view>
+      </view>
+  	</view>
+    <view class="nodata" hidden="{{noData}}">
+      <view><image src="../../img/nodata.png"></image></view>
+      <view>抱歉，没有相关数据</view>
+    </view>
+    <scroll-view scroll-y="{{true}}" bindscroll="scroll" bindscrolltolower="lower" class="scroll">
+      <view class="all" wx:for="{{datas}}" wx:key="item" wx:for-index="idx">
+        <view class="list">
+          <view class="list_all" bindtap="goOptionDetail" data-trendid="{{item.id}}">
+            <view class="title" wx:if="{{item.title && item.statu==0}}">{{item.title}}</view>
+            <view class="desc"><text class="deal" wx:if="{{item.statu==1}}">【交易】</text>{{item.content}}</view>
+            <view class="info">
+              <view>
+                <image class="portait" src="{{item.activePath}}"></image>
+              </view>
+              <view class="info_text">
+                <text class="nickname">{{item.name}}</text>
+                <text class="time">{{item.createTime}}</text>           
+                <text class="comment" catchtap="comment" data-item="{{item}}" data-index="{{idx}}">评论({{item.count}})</text>
+              </view> 
+            </view>
+          </view>
+        </view>       
+      </view>
+      <view wx:if="{{!end && loading && noData}}">
+        <template is="loading" /> 
+      </view>
+      <view class="myloading" wx:if="{{end}}">没有数据了~</view>
+    </scroll-view>
+    <view class="addComment" wx:if="{{showComment}}">
+      <view class="modal"></view>
+      <view class="detail">
+        <view class="top">
+          <view bindtap="cancel">取消</view>
+          <view bindtap="fabu">发布</view>
+        </view>
+        <view class="content">
+          <textarea bindinput="bindKeyInput" placeholder="亮出你的观点吧..." />
+        </view>
+      </view>
+    </view>
+</view>
